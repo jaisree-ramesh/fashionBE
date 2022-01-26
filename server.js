@@ -23,6 +23,10 @@ mongoose
 	.then((e) => console.log("Database connected"))
 	.catch((e) => console.log("error", e));
 
+	app.get("/", (req, res) => {
+		res.send("Working");
+	});
+	
 app.get("/colors", (req, res) => {
 	colors.find({})
 		.then((result) => res.send(result))
