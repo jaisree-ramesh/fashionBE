@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import colors from "./models/colors.js";
 import patterns from "./models/patterns.js";
 import categories from "./models/categories.js";
+import designs from "./models/designs.js";
+import outfitParts from "./models/outfitParts.js";
 import cors from "cors";
 
 const port = process.env.PORT || 5000;
@@ -42,6 +44,20 @@ app.get("/patterns", (req, res) => {
 app.get("/categories", (req, res) => {
 	categories.find({})
 		.then((result) => res.send(result))
+		.catch((e) => res.send(e.message));
+});
+
+app.get("/designs", (req, res) => {
+	designs.find({})
+		.then((result) => res.send(result))
+		.catch((e) => res.send(e.message));
+});
+
+app.get("/outfitParts", (req, res) => {
+	outfitParts.find({})
+		.then((result) => 
+		
+			res.send(result))
 		.catch((e) => res.send(e.message));
 });
 
