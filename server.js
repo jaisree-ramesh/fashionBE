@@ -7,6 +7,7 @@ import categories from "./models/categories.js";
 import designs from "./models/designs.js";
 import outfitParts from "./models/outfitParts.js";
 import fixedDresses from "./models/fixedDresses.js";
+import reviews from "./models/reviews.js";
 import cors from "cors";
 
 const port = process.env.PORT || 5000;
@@ -64,6 +65,13 @@ app.get("/outfitParts", (req, res) => {
 
 app.get("/fixedDresses", (req, res) => {
 	fixedDresses.find({})
+		.then((result) => 
+			res.send(result))
+		.catch((e) => res.send(e.message));
+});
+
+app.get("/reviews", (req, res) => {
+	reviews.find({})
 		.then((result) => 
 			res.send(result))
 		.catch((e) => res.send(e.message));
